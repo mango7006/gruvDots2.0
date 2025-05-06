@@ -1,0 +1,103 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "height": 29,
+  "modules-left": [
+    "clock",
+    "custom/dat",
+    "custom/date",
+    "custom/notification",
+    "tray"
+    // "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "mpris",
+  ],
+  "modules-right": [
+    "bluetooth",
+    "pulseaudio",
+    "network",
+    "battery"
+    // "custom/powermenu",
+  ],
+  "custom/dat": {
+    "format": "dat ",
+    "tooltip": false
+  },
+  "clock": {
+    "format": "<span color='#d65d0e'>clk</span> {:%H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "interval": 30
+  },
+  "custom/date": {
+    "exec": "date +%d/%m",
+    "tooltip": false,
+    "interval": 60
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "<span color='#d65d0e'>bat</span> {capacity}%",
+    "format-charging": "<span color='#d65d0e'>bat</span> {capacity}%",
+    "format-plugged": "<span color='#d65d0e'>bat</span> {capacity}%",
+    "format-alt": "{time} {icon}",
+  },
+  "pulseaudio": {
+    "format": "<span color='#d65d0e'>vol</span> {volume}",
+    "tooltip": true,
+    "format-muted": "<span color='#d65d0e'>vol</span> muted",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-",
+    "scroll-step": 5,
+  },
+  "network": {
+    "format-wifi": "<span color='#d65d0e'>net</span> {essid}",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
+    "format-disconnected": "󰖪 ⚠",
+    "on-click": "nm-connection-editor"
+  },
+  "bluetooth": {
+    "format": "<span color='#d65d0e'>blu</span> {status}",
+    "tooltip-format": "{device_alias}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "blueman-manager"
+  },
+  "mpris": {
+    "format": "{artist} / {title}",
+    "max-length": 400,
+    "ignored-players": [
+      "firefox"
+    ],
+    "interval": 2
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+     "notification": "<span foreground='red'><sup>⬤ </sup></span>",
+      "none": " ",
+      "dnd-notification": "<span foreground='red'><sup>⬤ </sup></span>",
+      "dnd-none": " "
+   },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true
+  }
+}
