@@ -26,8 +26,7 @@ tooltip {
 #battery,
 #pulseaudio,
 #network,
-#bluetooth,
-#tray {
+#bluetooth {
   opacity: 1;
   padding: 0px 7px;
 }
@@ -59,8 +58,4 @@ tooltip {
 
 #battery.warning {
   color: #ffaa00; /* Orange under 30% */
-}
-
-#custom-dat {
-  color: #d65d0e;
 }

@@ -4,10 +4,9 @@
   "mod": "dock",
   "exclusive": true,
   "gtk-layer-shell": true,
-  "height": 29,
+  "height": 33,
   "modules-left": [
     "clock",
-    "custom/dat",
     "custom/date",
     "custom/notification",
     "tray"
@@ -23,10 +22,6 @@
     "battery"
     // "custom/powermenu",
   ],
-  "custom/dat": {
-    "format": "dat ",
-    "tooltip": false
-  },
   "clock": {
     "format": "<span color='#d65d0e'>clk</span> {:%H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -34,6 +29,7 @@
   },
   "custom/date": {
     "exec": "date +%d/%m",
+    "format": "<span color='#d65d0e'>dat</span> {text}",
     "tooltip": false,
     "interval": 60
   },

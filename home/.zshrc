@@ -56,12 +56,12 @@ cleantmp() {
   local before=$(df --output=used / | tail -n1)
 
   # Perform cleanup
+  paccache -rk0
   sudo systemd-tmpfiles --clean
   sudo pacman -Scc --noconfirm
   paru -Scc --noconfirm
   sudo journalctl --vacuum-time=1d
   sudo systemd-tmpfiles --remove
-  paccache -rk0
   yes | trash-empty
 
   clear
@@ -114,6 +114,10 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
+
+bytes() {
+    du -sh --apparent-size "$@" 2>/dev/null | awk '{print $1}'
+}
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
