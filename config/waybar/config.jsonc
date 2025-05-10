@@ -9,8 +9,7 @@
     "clock",
     "custom/date",
     "custom/notification",
-    "tray"
-    // "hyprland/workspaces"
+    "tray",
   ],
   "modules-center": [
     "mpris",
@@ -20,7 +19,6 @@
     "pulseaudio",
     "network",
     "battery"
-    // "custom/powermenu",
   ],
   "clock": {
     "format": "<span color='#d65d0e'>clk</span> {:%H:%M}",

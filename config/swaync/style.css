@@ -4,15 +4,15 @@
 @define-color widget-border #d65d0e;
 @define-color widget-fg rgba(255, 255, 255, 1);
 @define-color widget-bg rgba(0, 0, 0, 0.7);
-@define-color noti-base-border rgba(255, 255, 255, 0.3);
+@define-color noti-base-border #d65d0e;
 @define-color noti-focus-border rgba(255, 255, 255, 0.3);
 @define-color noti-disable-border rgba(255, 255, 255, 0.3);
 @define-color noti-base-fg rgba(255, 255, 255, 1);
 @define-color noti-focus-fg rgba(255, 255, 255, 1);
 @define-color noti-disable-fg rgba(255, 255, 255, 1);
-@define-color noti-base-bg rgba(0, 0, 0, 0.7);
-@define-color noti-focus-bg rgba(0, 0, 0, 0.7);
-@define-color noti-disable-bg rgba(0, 0, 0, 0.7);
+@define-color noti-base-bg #282828;
+@define-color noti-focus-bg #282828;
+@define-color noti-disable-bg #282828;
 @define-color button-base-border rgba(255, 255, 255, 0.3);
 @define-color button-focus-border rgba(255, 255, 255, 0.3);
 @define-color button-disable-border rgba(255, 255, 255, 0.3);
@@ -59,8 +59,8 @@
 }
 
 .notification-row .notification-background .notification {
-	padding: 5px;
-	border: 2px solid @noti-base-border;
+	padding: 0px;
+	border: 4px solid @noti-base-border;
 	border-radius: 0px;
 	background: @noti-base-bg;
 }
