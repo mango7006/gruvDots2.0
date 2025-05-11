@@ -55,7 +55,6 @@ alias neovim="nvim"
 cleantmp() {
   local before=$(df --output=used / | tail -n1)
 
-  # Perform cleanup
   paccache -rk0
   sudo systemd-tmpfiles --clean
   sudo pacman -Scc --noconfirm
@@ -65,7 +64,7 @@ cleantmp() {
   yes | trash-empty
 
   clear
-  # Wait briefly for disk IO to settle
+  echo  'Wait briefly for disk IO to settle'
   sleep 1
 
   local after=$(df --output=used / | tail -n1)
@@ -75,6 +74,10 @@ cleantmp() {
 
   clear
   echo "Cleanup complete. Freed $freed_hr."
+}
+
+wifi() {
+  nmcli d wifi connect $1
 }
 
 alias rm="trash"
@@ -90,10 +93,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-
-#################
-### Functions ###
-#################
 
 zsh_install() {
   local packages=(neovim starship zoxide bat eza fastfetch trash-cli ripgrep pacman-contrib)
@@ -114,10 +113,6 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
-
-bytes() {
-    du -sh --apparent-size "$@" 2>/dev/null | awk '{print $1}'
-}
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting

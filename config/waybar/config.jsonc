@@ -44,7 +44,7 @@
     "format": "<span color='#d65d0e'>bat</span> {capacity}%",
     "format-charging": "<span color='#d65d0e'>bat</span> {capacity}%",
     "format-plugged": "<span color='#d65d0e'>bat</span> {capacity}%",
-    "format-alt": "{time} {icon}",
+    "format-alt": "<span color='#d65d0e'>bat</span> {time} {icon}",
   },
   "pulseaudio": {
     "format": "<span color='#d65d0e'>vol</span> {volume}",
