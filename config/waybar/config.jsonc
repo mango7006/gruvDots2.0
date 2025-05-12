@@ -29,7 +29,7 @@
     "exec": "date +%d/%m",
     "format": "<span color='#d65d0e'>dat</span> {text}",
     "tooltip": false,
-    "interval": 60
+    "interval": 180
   },
   "tray": {
     "icon-size": 18,
