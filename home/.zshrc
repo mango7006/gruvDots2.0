@@ -73,6 +73,44 @@ alias .....='cd ../../../..'
 
 alias whatip="ip -c a | grep 'inet '"
 
+usbutil() {
+  echo -n "Search for the Arch ISO file path (press enter to continue): "
+  read -r useless
+
+  iso="$(find /home -name '*.iso' | fzf)"
+  if [[ -z "$iso" ]]; then
+    echo "No ISO selected. Aborting."
+    return 1
+  fi
+
+  clear
+  lsblk
+  echo "Enter the device file path you will be writing to"
+  echo "WARNING: ENTERING THE WRONG DEVICE WILL ERASE ALL OF YOUR DATA"
+  echo "Example: /dev/sda"
+  echo -n "Device file path: "
+  read -r disk
+
+  if [[ ! -b "$disk" ]]; then
+    echo "Invalid block device: $disk"
+    return 1
+  fi
+
+  clear
+  echo "ISO path: $iso"
+  echo "Target device: $disk"
+  umount -lR "$disk" 2>/dev/null
+
+  echo -n "Are you SURE these are right? This will ERASE $disk. Type YES to continue: "
+  read -r response
+  if [[ "$response" == "YES" ]]; then
+    sudo dd bs=4M if="$iso" of="$disk" conv=fsync oflag=direct status=progress
+  else
+    echo "Aborted by user."
+    return 1
+  fi
+}
+
 cleantmp() {
   local before=$(df --output=used / | tail -n1)
 
@@ -98,11 +136,15 @@ cleantmp() {
 }
 
 wifi() {
-  nmcli d wifi connect $1
+  if [[ -z "$1" ]]; then
+    echo "Usage: wifi <SSID>"
+    return 1
+  fi
+  nmcli d wifi connect "$1"
 }
 
 zsh_install() {
-  local packages=(neovim starship zoxide bat eza fastfetch trash-cli ripgrep pacman-contrib sshd nmcli)
+  local packages=(neovim starship zoxide bat eza fastfetch trash-cli ripgrep pacman-contrib)
   for package in $packages; do
     pacman -Qs $package &>/dev/null || sudo pacman -S --noconfirm $package
   done
