@@ -32,7 +32,6 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
-# Aliases
 alias ls="eza --color=auto --icons"
 alias l="eza -a --color=auto --icons"
 alias la="eza -alh --color=auto --icons"
@@ -71,44 +70,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-alias whatip="ip -c a | grep 'inet '"
-
-usbutil() {
-  echo -n "Search for the Arch ISO file path (press enter to continue): "
-  read -r useless
-
-  iso="$(find /home -name '*.iso' | fzf)"
-  if [[ -z "$iso" ]]; then
-    echo "No ISO selected. Aborting."
-    return 1
-  fi
-
-  clear
-  lsblk
-  echo "Enter the device file path you will be writing to"
-  echo "WARNING: ENTERING THE WRONG DEVICE WILL ERASE ALL OF YOUR DATA"
-  echo "Example: /dev/sda"
-  echo -n "Device file path: "
-  read -r disk
-
-  if [[ ! -b "$disk" ]]; then
-    echo "Invalid block device: $disk"
-    return 1
-  fi
-
-  clear
-  echo "ISO path: $iso"
-  echo "Target device: $disk"
-  umount -lR "$disk" 2>/dev/null
-
-  echo -n "Are you SURE these are right? This will ERASE $disk. Type YES to continue: "
-  read -r response
-  if [[ "$response" == "YES" ]]; then
-    sudo dd bs=4M if="$iso" of="$disk" conv=fsync oflag=direct status=progress
-  else
-    echo "Aborted by user."
-    return 1
-  fi
+whatip() {
+  ip a | grep 'inet ' | grep -v '127.0.0.1' | awk '{split($2, a, "/"); print a[1]}'
 }
 
 cleantmp() {
@@ -144,7 +107,7 @@ wifi() {
 }
 
 zsh_install() {
-  local packages=(neovim starship zoxide bat eza fastfetch trash-cli ripgrep pacman-contrib)
+  local packages=(neovim starship zoxide bat eza fastfetch trash-cli ripgrep pacman-contrib fzf fd)
   for package in $packages; do
     pacman -Qs $package &>/dev/null || sudo pacman -S --noconfirm $package
   done
