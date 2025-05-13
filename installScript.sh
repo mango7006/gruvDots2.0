@@ -87,12 +87,12 @@ else
   echo "paru is already installed."
 fi
 
-read -r -p "do you want to install AUR packages? [y/n] " response
-if [[ "$response" =~ ^([yY][ee][ss]|[yY])$ ]]; then
-  echo "installing AUR pkgs"
-  paru -S --needed --noconfirm arcolinux-logout bibata-cursor-theme-bin clipse-bin gruvbox-dark-gtk hyprshot spicetify-cli stremio topgrade-bin vesktop-bin waypaper || echo "Some AUR packages failed to install."
-else
-  echo -e "not installing packages. \n WARNING: this might make my dotfiles unuseable."
-fi
-
+# read -r -p "do you want to install AUR packages? [y/n] " response
+# if [[ "$response" =~ ^([yY][ee][ss]|[yY])$ ]]; then
+#   echo "installing AUR pkgs"
+#   paru -S --needed --noconfirm arcolinux-logout bibata-cursor-theme-bin clipse-bin gruvbox-dark-gtk hyprshot spicetify-cli stremio topgrade-bin vesktop-bin waypaper || echo "Some AUR packages failed to install."
+# else
+#   echo -e "not installing packages. \n WARNING: this might make my dotfiles unuseable."
+# fi
+#
 echo "End of install script"
