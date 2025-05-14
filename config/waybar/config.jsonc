@@ -31,20 +31,40 @@
     "tooltip": false,
     "interval": 180
   },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+     "notification": "<span foreground='red'><sup>⬤ </sup></span>",
+      "none": " ",
+      "dnd-notification": "<span foreground='red'><sup>⬤ </sup></span>",
+      "dnd-none": " "
+   },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true
+  },
   "tray": {
     "icon-size": 18,
     "spacing": 10
   },
-  "battery": {
-    "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 20
-    },
-    "format": "<span color='#d65d0e'>bat</span> {capacity}%",
-    "format-charging": "<span color='#d65d0e'>bat</span> {capacity}%",
-    "format-plugged": "<span color='#d65d0e'>bat</span> {capacity}%",
-    "format-alt": "<span color='#d65d0e'>bat</span> {time} {icon}",
+  "mpris": {
+    "format": "{artist} / {title}",
+    "max-length": 400,
+    "ignored-players": [
+      "firefox"
+    ],
+    "interval": 2
+  },
+  "bluetooth": {
+    "format": "<span color='#d65d0e'>blu</span> {status}",
+    "tooltip-format": "{device_alias}",
+    "tooltip-format-connected": "<span color='#d65d0e'>blu</span> {device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "blueman-manager"
   },
   "pulseaudio": {
     "format": "<span color='#d65d0e'>vol</span> {volume}",
@@ -63,35 +83,10 @@
     "format-disconnected": "󰖪 ⚠",
     "on-click": "nm-connection-editor"
   },
-  "bluetooth": {
-    "format": "<span color='#d65d0e'>blu</span> {status}",
-    "tooltip-format": "{device_alias}",
-    "tooltip-format-connected": "<span color='#d65d0e'>blu</span> {device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}",
-    "on-click": "blueman-manager"
-  },
-  "mpris": {
-    "format": "{artist} / {title}",
-    "max-length": 400,
-    "ignored-players": [
-      "firefox"
-    ],
-    "interval": 2
-  },
-  "custom/notification": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-     "notification": "<span foreground='red'><sup>⬤ </sup></span>",
-      "none": " ",
-      "dnd-notification": "<span foreground='red'><sup>⬤ </sup></span>",
-      "dnd-none": " "
-   },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "sleep 0.1 && swaync-client -t -sw",
-    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
-    "escape": true
+  "battery": {
+    "format": "<span color='#d65d0e'>bat</span> {capacity}%",
+    "format-charging": "<span color='#d65d0e'>bat</span> {capacity}%",
+    "format-plugged": "<span color='#d65d0e'>bat</span> {capacity}%",
+    "format-alt": "<span color='#d65d0e'>bat</span> {time} {icon}",
   }
 }
