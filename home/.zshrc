@@ -23,14 +23,6 @@ export VISUAL="nvim"
 
 export MANPAGER="nvim +Man!"
 
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
@@ -50,7 +42,7 @@ alias grep="rg -P -i --color=auto"
 
 alias ip="ip -c=auto"
 
-alias ff="fastfetch"
+alias ff="kitten icat -n --place 30x30@0x0 --scale-up --align left ~/Downloads/bober-kurwa.gif | fastfetch --logo-width 30 --raw -"
 
 alias neovim="nvim"
 alias nano="nvim"
@@ -85,6 +77,7 @@ cleantmp() {
   paru -Scc --noconfirm
   sudo journalctl --vacuum-time=1d
   sudo systemd-tmpfiles --remove
+  sudo rm -rf ~/.cache/paru/clone/
   yes | trash-empty
 
   clear
