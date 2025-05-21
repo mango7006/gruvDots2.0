@@ -10,7 +10,6 @@
     "custom/date",
     "custom/notification",
     "tray",
-    "custom/workspaces",
   ],
   "modules-center": [
     "mpris",
