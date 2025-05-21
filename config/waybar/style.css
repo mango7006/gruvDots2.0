@@ -9,7 +9,10 @@
 }
 
 window#waybar {
-  background: rgba(0, 0, 0, 0);
+  background: rgba(40, 40, 40, 0.4);
+  /* backdrop-filter: blur(6px); */
+  border: none;
+  color: #dddddd;
 }
 
 tooltip {

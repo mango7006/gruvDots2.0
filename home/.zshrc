@@ -42,7 +42,7 @@ alias grep="rg -P -i --color=auto"
 
 alias ip="ip -c=auto"
 
-alias ff="kitten icat -n --place 30x30@0x0 --scale-up --align left ~/Downloads/bober-kurwa.gif | fastfetch --logo-width 30 --raw -"
+alias ff="kitten icat -n --place 30x30@0x1 --scale-up --align left ~/Downloads/bober-kurwa.gif | fastfetch --logo-width 30 --raw -"
 
 alias neovim="nvim"
 alias nano="nvim"
@@ -77,7 +77,7 @@ cleantmp() {
   paru -Scc --noconfirm
   sudo journalctl --vacuum-time=1d
   sudo systemd-tmpfiles --remove
-  sudo rm -rf ~/.cache/paru/clone/
+  rm -rf ~/.cache/paru/clone/
   yes | trash-empty
 
   clear

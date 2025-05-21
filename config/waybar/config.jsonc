@@ -10,6 +10,7 @@
     "custom/date",
     "custom/notification",
     "tray",
+    "custom/workspaces",
   ],
   "modules-center": [
     "mpris",
@@ -30,6 +31,9 @@
     "format": "<span color='#d65d0e'>dat</span> {text}",
     "tooltip": false,
     "interval": 180
+  },
+  "custom/workspaces": {
+    "format": "<span color='#d65d0e'>wrk</span>",
   },
   "custom/notification": {
     "tooltip": false,
