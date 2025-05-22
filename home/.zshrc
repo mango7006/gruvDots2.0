@@ -42,7 +42,7 @@ alias grep="rg -P -i --color=auto"
 
 alias ip="ip -c=auto"
 
-alias ff="kitten icat -n --place 30x30@0x1 --scale-up --align left ~/Downloads/bober-kurwa.gif | fastfetch --logo-width 30 --raw -"
+alias ff="kitten icat -n --place 30x30@0x2 --scale-up --align left ~/Downloads/bober-kurwa.gif | fastfetch --logo-width 30 --raw -"
 
 alias neovim="nvim"
 alias nano="nvim"

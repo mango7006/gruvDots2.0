@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# source ~/secret.sh
 source config.sh
 
 echo "Updating github repo for Dotfiles"
