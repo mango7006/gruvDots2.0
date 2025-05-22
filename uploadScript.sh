@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/secret.sh
+# source ~/secret.sh
 source config.sh
 
 echo "Updating github repo for Dotfiles"
@@ -29,7 +29,7 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
   date=$(date +%b/%d/%H:%M)
   read -r -p "Commit Message: " comMessage
   git commit -m "$comMessage $date"
-  git push --quiet $gittoken@github.com/$repo_link
+  git push --quiet origin main
   echo "Done pushing, changes saved"
 else
   echo "Not pushing changes to github"
