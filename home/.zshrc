@@ -102,10 +102,7 @@ wifi() {
 }
 
 zsh_install() {
-  local packages=(neovim starship zoxide bat eza fastfetch trash-cli ripgrep pacman-contrib fzf fd)
-  for package in $packages; do
-    pacman -Qs $package &>/dev/null || sudo pacman -S --noconfirm $package
-  done
+  sudo pacman -S --needed neovim starship zoxide bat eza fastfetch trash-cli ripgrep pacman-contrib fzf fd
 }
 
 refresh() {
