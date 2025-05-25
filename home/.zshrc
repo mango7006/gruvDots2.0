@@ -3,6 +3,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+export TERM=xterm-256color
+
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -106,7 +108,12 @@ zsh_install() {
 }
 
 refresh() {
+  cd ~/gits/dotbot
+  git add .
+  git commit -m "Dotbot Upload"
+  git push --quiet origin main
   source ~/.zshrc && exec zsh
+  cd ~
 }
 
 zinit light zsh-users/zsh-autosuggestions
