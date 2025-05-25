@@ -1,0 +1,35 @@
+(defwidget clock []
+  (label :text (run "date +'%H:%M:%S')"))
+)
+
+(defwindow main
+  :monitor 0
+  :geometry (geometry :x 20 :y 20 :width 200 :height 50)
+  :stacking "fg"
+  :anchor "top left"
+  :exclusive true
+  (clock)
+)
+(defwindow powermenu
+  :monitor 0 ;; Optional for X11
+  :stacking "fg"
+  :windowtype "normal"
+  :wm-ignore true
+  :geometry (geometry
+              :width "50%"
+              :height "10%")
+  (powermenu_layout))
+
+
+(defwidget powermenu_layout []
+  (label :text "Hello, World!"))
+
+(defwidget _buttons [shutdown shutdown_icon reboot
+                    reboot_icon logout logout_icon]
+  (box :class "btns-box" :spacing 5
+       :vexpand true :hexpand true
+       :valign "end" :halign "end"
+       :space-evenly false
+    (button :onclick shutdown shutdown_icon)
+    (button :onclick reboot reboot_icon)
+    (button :onclick logout logout_icon)))
