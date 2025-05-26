@@ -22,7 +22,8 @@
   ],
   "clock": {
     "format": "<span color='#d65d0e'>clk</span> {:%H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip": false,
     "interval": 30
   },
   "custom/date": {
@@ -82,7 +83,7 @@
   "network": {
     "format-wifi": "<span color='#d65d0e'>net</span> {essid}",
     "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
+    "tooltip-format": "{cidr} - {ifname} via {gwaddr}",
     "format-disconnected": "󰖪 ⚠",
     "on-click": "nm-connection-editor"
   },

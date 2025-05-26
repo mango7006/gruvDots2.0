@@ -1,19 +1,64 @@
-/* * { */
-/*   font-family: "JetBrainsMono Nerd Font"; */
-/*   font-size: 14px; */
-/*   color: #ffffff; */
-/* } */
+$foreground: #ffffff;
+$grey: #aaaaaa;
+$foreground-alt: #465059;
+$background: #0e1419;
+$black: #000000;
+$red: #ff6565;
+$green: #b8cc52;
+$yellow: #e6c446;
+$blue: #68d4ff;
+$magenta: #ffa3aa;
+$cyan: #36a3d9;
+$white: #ffffff;
 
-/* label { */
-/*   background-color: #1e1e2e; */
-/*   padding: 5px 10px; */
-/*   border-radius: 5px; */
-/* } */
+* {
+  all: unset;
+}
 
-.activate-linux {
-  color: rgba(250, 250, 250, 0.5);
+window {
+  background: $background;
+}
 
-  &.background {
-    background: none;
+.bar {
+  font-family: "Noto Sans";
+  font-size: 13px;
+  margin: 0 10px;
+}
+
+.icon-module {
+  margin: 0 5px;
+  & > &__icon {
+    margin-right: 5px;
+    font-family: "Font Awesome 5 Free Solid";
   }
+}
+
+
+.workspaces {
+  font-family: "Font Awesome 5 Free Solid";
+  font-size: 12px;
+  margin-right: 20px;
+
+  button {
+    margin: 0px 3px;
+  }
+  .occupied {
+    color: $grey;
+  }
+
+  .focused {
+    color: $white;
+  }
+
+  .urgent {
+    color: $red; 
+  }
+
+  .empty {
+    padding-top: 2px;
+    color: $foreground-alt;
+    font-size: 10px;
+//  font-family: "Font Awesome 5 Free Regular"
+  }
+
 }
