@@ -4,7 +4,7 @@
   "mod": "dock",
   "exclusive": true,
   "gtk-layer-shell": true,
-  "height": 33,
+  "height": 35,
   "modules-left": [
     "clock",
     "custom/date",
@@ -88,6 +88,7 @@
     "on-click": "nm-connection-editor"
   },
   "battery": {
+    "interval": 1,
     "format": "<span color='#d65d0e'>bat</span> {capacity}%",
     "format-charging": "<span color='#d65d0e'>bat</span> {capacity}%",
     "format-plugged": "<span color='#d65d0e'>bat</span> {capacity}%",
