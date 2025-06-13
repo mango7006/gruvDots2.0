@@ -10,7 +10,6 @@
 
 window#waybar {
   background: rgba(40, 40, 40, 0.85);
-  /* backdrop-filter: blur(6px); */
   border: none;
   color: #dddddd;
 }
@@ -23,8 +22,8 @@ tooltip {
   color: #ffffff;
 }
 
-#custom-notification,
 #mpris,
+#custom-mem,
 #clock,
 #battery,
 #pulseaudio,
@@ -35,30 +34,31 @@ tooltip {
 }
 
 #custom-notification {
-  padding: 7px 7px;
+  padding: 0px 7px;
 }
 
+#custom-mem,
 #mpris,
 #clock,
 #network,
 #custom-date,
 #pulseaudio,
 #battery {
-  color: #ffffff
-}
-
-#battery.charging {
-  color: #00ff00; /* Green when charging */
+  color: #ffffff;
 }
 
 #battery.critical {
   color: #ff0000; /* Red under 15% */
 }
 
-#battery.full {
-  color: #00ff00; /* Blue when full */
-}
-
 #battery.warning {
   color: #ffaa00; /* Orange under 30% */
+}
+
+#battery.charging {
+  color: #00ff00; /* Green when charging */
+}
+
+#battery.full {
+  color: #00ff00;
 }
