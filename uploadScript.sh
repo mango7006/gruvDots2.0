@@ -16,7 +16,7 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
   sudo cp -r ~/.config/waybar/ $repo_config
   sudo cp -r ~/.config/wofi/ $repo_config
   sudo cp -r ~/.config/kitty/ $repo_config
-  sudo cp -r ~/.config/sys64/hud/ $repo_config/sys
+  sudo cp -r ~/.config/sys64/hud/ $repo_config/sys64/
   sudo cp -r ~/.config/waypaper/ $repo_config
 else
   echo "Not Updating dotfiles"
